@@ -8,6 +8,16 @@
     android:background="@color/md_theme_primary"
     tools:context=".ui.UserActivity">
 
+    <ProgressBar
+        android:id="@+id/progressbar_loading"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:indeterminateTint="@color/md_theme_onPrimary"
+        style="?android:attr/progressBarStyleLarge"
+        android:visibility="gone"
+        />
+
     <TextView
         android:id="@+id/textview_page_title"
         android:layout_width="match_parent"
@@ -32,6 +42,8 @@
         android:textColorHint="@color/md_theme_onPrimary"
         android:autofillHints="name"
         android:textSize="22sp"
+        android:inputType="text"
+        android:imeOptions="actionNone"
         android:hint="Qual o seu nome?"
         />
 
@@ -46,6 +58,4 @@
         android:layout_marginBottom="32dp"
         android:text="SALVAR"
         />
-
-
 </RelativeLayout>
