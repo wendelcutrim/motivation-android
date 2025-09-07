@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:id="@+id/linearlayout_header"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:background="@color/md_theme_onPrimaryContainer"
+        android:gravity="center_horizontal"
+        >
+        <ImageButton
+            android:id="@+id/imagebutton_random"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_baseline_all_inclusive_48"
+            android:background="@color/md_theme_onPrimaryContainer"
+            android:layout_gravity="center"
+            android:layout_marginEnd="60dp"
+            android:contentDescription="random"
+            />
+
+        <ImageButton
+            android:id="@+id/imagebutton_happy"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_mood_48px"
+            android:background="@color/md_theme_onPrimaryContainer"
+            android:layout_gravity="center"
+            android:layout_marginEnd="60dp"
+            android:contentDescription="motivation"
+            />
+
+        <ImageButton
+            android:id="@+id/imagebutton_light"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_light_mode_48px"
+            android:background="@color/md_theme_onPrimaryContainer"
+            android:layout_gravity="center"
+            android:contentDescription="light"
+            />
+    </LinearLayout>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/linearlayout_header"
+        android:text="Olá, Kotlin!"
+        android:gravity="center"
+        android:layout_marginTop="16dp"
+        android:textStyle="bold"
+        />
+
+    <View
+        android:id="@+id/view_center"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_centerHorizontal="true"
+        />
+
+    <TextView
+        android:id="@+id/textview_random_text"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:text="Riscos devem ser corridos, porque o maior perigo é não arriscar nada!"
+        android:gravity="center"
+        android:padding="8dp"
+        android:textStyle="bold"
+        android:textSize="18sp"
+        />
+
+    <View
+        android:layout_width="160dp"
+        android:layout_height="4sp"
+        android:layout_below="@id/textview_random_text"
+        android:background="@color/md_theme_onPrimaryFixed"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="16dp"
+        />
+
+    <Button
+        android:id="@+id/button_new_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="NOVA FRASE"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="30dp"
+        android:backgroundTint="@color/md_theme_onPrimaryFixed"
+        />
+</RelativeLayout>
