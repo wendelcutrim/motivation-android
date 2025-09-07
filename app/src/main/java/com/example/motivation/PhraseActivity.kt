@@ -7,34 +7,40 @@ import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
-import com.example.motivation.databinding.ActivityMainBinding
+import com.example.motivation.databinding.ActivityPhraseBinding
 
 private var TAG: String = "MainActivity"
 
-class MainActivity : AppCompatActivity(), View.OnClickListener {
-    private lateinit var binding: ActivityMainBinding
+class PhraseActivity : AppCompatActivity(), View.OnClickListener {
+    private lateinit var binding: ActivityPhraseBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
-        binding = ActivityMainBinding.inflate(layoutInflater)
+
+        binding = ActivityPhraseBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
 
-        binding.imagebuttonRandom.setOnClickListener(this);
-        binding.imagebuttonHappy.setOnClickListener(this);
-        binding.imagebuttonLight.setOnClickListener(this);
-        binding.buttonNewText.setOnClickListener(this);
+        setListeners()
     }
 
     override fun onClick(v: View?) {
         v?.let {
             handleClick(it)
         }
+    }
+
+    private fun setListeners() {
+        binding.imagebuttonRandom.setOnClickListener(this);
+        binding.imagebuttonHappy.setOnClickListener(this);
+        binding.imagebuttonLight.setOnClickListener(this);
+        binding.buttonNewText.setOnClickListener(this);
     }
 
     private fun handleClick(v: View) {
@@ -53,7 +59,12 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
 
             binding.buttonNewText.id -> {
                 Log.i(TAG, "New text button clicked")
+                handleNewPhrase();
             }
         }
+    }
+
+    private fun handleNewPhrase() {
+        binding.buttonNewText.setText("Gerou nova frase")
     }
 }
