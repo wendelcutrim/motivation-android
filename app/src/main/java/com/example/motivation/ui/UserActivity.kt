@@ -1,4 +1,4 @@
-package com.example.motivation
+package com.example.motivation.ui
 
 import android.os.Bundle
 import android.util.Log
@@ -7,8 +7,9 @@ import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import com.example.motivation.R
 import com.example.motivation.databinding.ActivityUserBinding
-
+import com.example.motivation.helper.SecurityPreferences
 
 class UserActivity : AppCompatActivity(), View.OnClickListener {
     private val TAG: String = "UserActivity"
@@ -49,5 +50,7 @@ class UserActivity : AppCompatActivity(), View.OnClickListener {
         }
     }
 
-    private fun saveUser() {}
+    private fun saveUser() {
+        SecurityPreferences(applicationContext).storeString("name", binding.edittextName.text.toString())
+    }
 }

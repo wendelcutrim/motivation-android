@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:background="@color/md_theme_primary"
-    tools:context=".UserActivity">
+    tools:context=".ui.UserActivity">
 
     <TextView
         android:id="@+id/textview_page_title"
