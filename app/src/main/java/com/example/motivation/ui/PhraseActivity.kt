@@ -7,15 +7,19 @@ import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import com.example.motivation.MotivationConstants
 import com.example.motivation.R
 import com.example.motivation.databinding.ActivityPhraseBinding
+import com.example.motivation.helper.SecurityPreferences
 
 class PhraseActivity : AppCompatActivity(), View.OnClickListener {
     private val TAG: String = "PhraseActivity"
     private lateinit var binding: ActivityPhraseBinding
+    private lateinit var securityPreferences: SecurityPreferences
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        securityPreferences = SecurityPreferences(this)
         enableEdgeToEdge()
 
         binding = ActivityPhraseBinding.inflate(layoutInflater)
@@ -27,6 +31,7 @@ class PhraseActivity : AppCompatActivity(), View.OnClickListener {
             insets
         }
 
+        getUserName()
         setListeners()
     }
 
@@ -65,6 +70,18 @@ class PhraseActivity : AppCompatActivity(), View.OnClickListener {
     }
 
     private fun handleNewPhrase() {
-        binding.buttonNewText.setText("Gerou nova frase")
+        binding.buttonNewText.text = "Gerou nova frase"
+    }
+
+    private fun getUserName() {
+        val name = securityPreferences.getString(MotivationConstants.USER_NAME);
+
+        if (name.isNotEmpty()) {
+            binding.textviewRegards.text = "Olá, $name!";
+            binding.textviewRegards.visibility = View.VISIBLE;
+            return;
+        }
+
+        binding.textviewRegards.visibility = View.GONE;
     }
 }
